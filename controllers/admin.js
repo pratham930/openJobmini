@@ -3,9 +3,9 @@
 
 import Registration from "../Schema/admin/singup.js";
 import bcrypt from "bcryptjs";
-import Apllyjob from "../Schema/custumer.js/aplly.js";
+// import Apllyjob from "../Schema/custumer.js/aplly.js";
 
-import Postjob from "../Schema/postjob.js";
+// import Postjob from "../Schema/postjob.js";
 import jwt from 'jsonwebtoken';
 
 

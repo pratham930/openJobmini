@@ -3,7 +3,7 @@
 import bcrypt from "bcryptjs";
 import Apllyjob from "../Schema/application.js";
 import Registration from "../Schema/admin/singup.js";
-import Postjob from "../Schema/postjob.js";
+// import Postjob from "../Schema/postjob.js";
 import jwt from 'jsonwebtoken';
 
 

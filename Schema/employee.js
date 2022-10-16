@@ -26,6 +26,10 @@ const PostJobSchema = new mongoose.Schema({
        
     },
     
+    jobdetails:{
+        type: String,
+       
+    },
     // role: {
     //     type: String,
     //      enum: ["user", "admin"],

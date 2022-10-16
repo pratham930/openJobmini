@@ -18,7 +18,7 @@ const DATABASE_URL = process.env.DATABASE_URL|| "mongodb://localhost:27017"
 // });
 connectDB(DATABASE_URL)
 export  const app = express()
- app.use(cookieParser())
+//  app.use(cookieParser())
 app.use(express.json())
 app.use(cors())
 app.use(express.static('public/uploads/pimage'))
