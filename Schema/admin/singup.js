@@ -31,16 +31,7 @@ const singupSchema = new mongoose.Schema({
 
 
    
-    // adress:[{
-    //     name:{type:String},
-    //     pimage:{type:String},
-    //     locality:{type:String},
-    //     adress:{type:String,required:true},
-    //     landmark:{type:String},
-    //     st:{type:String},
-    //     mobile:{type:String},
-    //     pincode:{type:String}}
-    //    ]
+    
  
 })
 

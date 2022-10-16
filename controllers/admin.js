@@ -1,13 +1,15 @@
 
+// import AdminSingup from "../Schema/AdminSingup.js";
 
-import bcrypt from "bcryptjs";
-import Apllyjob from "../Schema/application.js";
 import Registration from "../Schema/admin/singup.js";
+import bcrypt from "bcryptjs";
+import Apllyjob from "../Schema/custumer.js/aplly.js";
+
 import Postjob from "../Schema/postjob.js";
 import jwt from 'jsonwebtoken';
 
 
-class employeeController {
+class adminController {
 
 
 
@@ -98,6 +100,9 @@ class employeeController {
   };
 
 
+
+  
+
 }
 
-export default employeeController;
+export default adminController;

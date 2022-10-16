@@ -3,54 +3,35 @@ import  bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
 const PostJobSchema = new mongoose.Schema({
-    name:{
+
+    jobtitle:{
         type: String,
         required:true
     },
-    email:{
+    companyname:{
         type: String,
         required:true
     },
-    mobile:{
+    sallery:{
         type: String,
         
     },
-    work:{
+    loaction:{
         type: String,
        
     },
-    password:{
+    
+    HrNumber:{
         type: String,
-        required:true
+       
     },
-    cpassword:{
-        type: String,
-        required:true
-        
-    },
-    pimage:{type:String,required:true},
-    role: {
-        type: String,
-         enum: ["user", "admin"],
-        default: "user",
-      },
-  
-
-    friends: [{firstName:{type:String}, lastName:{type:String}}],
-
-   
-    adress:[{
-        name:{type:String},
-        pimage:{type:String},
-        locality:{type:String},
-        adress:{type:String,required:true},
-        landmark:{type:String},
-        st:{type:String},
-        mobile:{type:String},
-        pincode:{type:String}}
-       ]
-   
-})
+    
+    // role: {
+    //     type: String,
+    //      enum: ["user", "admin"],
+    //     default: "user",
+    //   },
+  })
 
 
 const PostJob = mongoose.model('PostJob', PostJobSchema)
@@ -59,23 +40,3 @@ const PostJob = mongoose.model('PostJob', PostJobSchema)
 export default PostJob;
 
 
-// import mongoose from "mongoose"
-
-// const Schema = new mongoose.Schema({
-//     name:{type:String, required:true},
-//     email:{type:String,required:true},
-//     password:{type:String,required:true},
-//     cpassword:{type:String,required:true},
-//     mobile:{type:String,required:true},
-//     work:{type:String},
-    
-  
-  
-
-// })
-
-
-// const Registration = mongoose.model('Registration',Schema);
-
-
-//  export default Registration;
