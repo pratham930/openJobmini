@@ -54,10 +54,11 @@ class adminController {
   }
 
 
-  static getjobsByStaffs = async (req, res) => {
+ 
 
-   const {_id}  = req.user
-    const userLogin = await PostJob.find({jobPostedBy:_id})
+  static getjobs = async (req, res) => {
+
+    const userLogin = await PostJob.find()
     if (userLogin) {
 
       res.send(userLogin)
@@ -65,7 +66,6 @@ class adminController {
     }
 
   }
-
 
 
 
