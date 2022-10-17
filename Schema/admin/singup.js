@@ -24,13 +24,9 @@ const singupSchema = new mongoose.Schema({
     // pimage:{type:String,required:true},
     role: {
         type: String,
-         enum: ["staff", "admin"],
+         enum: ["staff", "admin","user"],
         default: "staff",
       },
-  
-
-
-   
     
  
 })

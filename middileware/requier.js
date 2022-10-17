@@ -45,9 +45,9 @@ class middile {
     //   };
 
 
-    static seller = (req, res, next) => {
+    static user = (req, res, next) => {
         console.log(req.user.role)
-            if (req.user.role !== "seller") {
+            if (req.user.role !== "user") {
               
               return res.status(400).json({ message: "User access denied" });
             }
