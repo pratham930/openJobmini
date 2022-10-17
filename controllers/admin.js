@@ -17,24 +17,22 @@ class adminController {
   static register = async (req, res) => {
 
     try {
-      const { phonenumber, fullname, email, password } = req.body;
+      const { phonenumber, name, email, password } = req.body;
 
       console.log(req.body);
-      const userLogin = await Registration.findOne({ phonenumber: phonenumber });
-      console.log(userLogin)
+      const userLogin = await Registration.findOne({ email: email });
+      console.log(userLogin, "24")
       if (userLogin) {
         if (userLogin.phonenumber == phonenumber) {
-          console.log(userLogin)
           res.status(201).send({ message: "number already register", status: "failed" })
         }
 
         if (userLogin.email == email) {
-          console.log(userLogin)
           res.status(201).send({ message: " email register", status: "failed" })
         }
       }
-      else {
-        const lol = { phonenumber, fullname, email, password }
+      if (!userLogin) {
+        const lol = { phonenumber, name, email, password }
         const register = new Registration(lol)
         await register.save()
         res.status(201).send({ message: "succesfull", status: "success" })
@@ -54,7 +52,7 @@ class adminController {
   }
 
 
- 
+
 
   static getjobs = async (req, res) => {
 
@@ -76,7 +74,7 @@ class adminController {
       const { email, password } = req.body
       console.log(req.body)
       if (!email || !password) {
-        return res.status(400).json({ message: "pls filled data",status:"failed" })
+        return res.status(400).json({ message: "pls filled data", status: "failed" })
       }
 
       const userLogin = await Registration.findOne({ email: email });
@@ -91,10 +89,10 @@ class adminController {
         //     expires:new Date(Date.now() + 2589000000),
         //    httpOnly:true});
 
-        !isMatch ? res.status(400).send({ status:"failed", message: "number or password wrong" }) : res.send({ status: "success", message: "Login Success", "token": token })
+        !isMatch ? res.status(400).send({ status: "failed", message: "number or password wrong" }) : res.send({ status: "success", message: "Login Success", "token": token })
 
       }
-      else { res.status(400).send({ message: "filled invalid data"  }) }
+      else { res.status(400).send({ message: "filled invalid data" }) }
 
     } catch (error) {
       console.log(error);
@@ -103,7 +101,7 @@ class adminController {
 
 
 
-  
+
 
 }
 

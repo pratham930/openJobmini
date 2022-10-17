@@ -1,41 +1,41 @@
 import mongoose from 'mongoose'
-import  bcrypt from "bcryptjs"
+import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
 const singupSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
-        required:true
+        required: true
     },
-    email:{
+    email: {
         type: String,
-        required:true
+        required: true
     },
-    mobile:{
+    mobile: {
         type: String,
-        
+
     },
-   
-    password:{
+
+    password: {
         type: String,
-        required:true
+        required: true
     },
 
     // pimage:{type:String,required:true},
     role: {
         type: String,
-         enum: ["staff", "admin","user"],
+        enum: ["staff", "admin", "user"],
         default: "staff",
-      },
-    
- 
+    },
+
+
 })
 
-singupSchema.pre('save',async function (next){
- console.log("hii pre");
-    if (this.isModified('password')){
-        this.password = await bcrypt.hash(this.password,12)
-        this.confrimPassword = await bcrypt.hash(this.password,12)
+singupSchema.pre('save', async function (next) {
+    console.log("hii pre");
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 12)
+        this.confrimPassword = await bcrypt.hash(this.password, 12)
     }
     next();
 })
