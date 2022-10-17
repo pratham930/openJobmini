@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 import  bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
+const { Schema } = mongoose;
+
 
 const PostJobSchema = new mongoose.Schema({
 
@@ -30,12 +32,21 @@ const PostJobSchema = new mongoose.Schema({
         type: String,
        
     },
-    // role: {
-    //     type: String,
-    //      enum: ["user", "admin"],
-    //     default: "user",
-    //   },
-  })
+
+    // jobPostedBy:[
+    //     { type: Schema.Types.ObjectId, ref: 'Registration' },
+       
+    // ],
+
+    jobPostedBy:{
+        type:String,
+
+    }
+        
+  },
+  { timestamps: true}
+  
+  )
 
 
 const PostJob = mongoose.model('PostJob', PostJobSchema)

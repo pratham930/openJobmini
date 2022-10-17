@@ -4,14 +4,15 @@ import express from "express";
 import employeeController from "../controllers/employee.js";
 import authenticate from "../middileware/Authentication.js";
 import upload from "../middileware/upload.js"
+import middile from '../middileware/requier.js';
 
 // router.use('/register', upload.fields([{ name: 'pimage', maxcount: 1 }]));
 
 
 const router = express.Router();
 
-router.post('/admin/register', employeeController.register);
-router.post('/admin/login', employeeController.login);
+router.post('/register', employeeController.register);
+router.post('/login', employeeController.login);
 
 //patch
 
@@ -20,7 +21,11 @@ router.post('/admin/login', employeeController.login);
 // router.patch('/admin/editProfile', authenticate, employeeController.editProfile);
 
 //get request
-router.get('/admin/about', authenticate, employeeController.about);
+router.get('/about', authenticate,middile.staff, employeeController.about);
+router.get('/getjobsByStaffs', authenticate,middile.staff, employeeController.getjobsByStaffs);
+
+
+
 // router.get('/admin/getjobs', authenticate, employeeController.getjobs);
 
 

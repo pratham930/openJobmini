@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import Apllyjob from "../Schema/application.js";
 import Registration from "../Schema/admin/singup.js";
 // import Postjob from "../Schema/postjob.js";
+import PostJob from "../Schema/employee.js";
+
 import jwt from 'jsonwebtoken';
 
 
@@ -51,16 +53,17 @@ class employeeController {
   }
 
 
-  static getjobs = async (req, res) => {
+  static getjobsByStaffs = async (req, res) => {
 
-    const userLogin = await Postjob.find()
-    if (userLogin) {
-
-      res.send(userLogin)
-      console.log(userLogin)
-    }
-
-  }
+    const {_id}  = req.user
+     const userLogin = await PostJob.find({jobPostedBy:_id})
+     if (userLogin) {
+ 
+       res.send(userLogin)
+       console.log(userLogin)
+     }
+ 
+   }
 
 
 

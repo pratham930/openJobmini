@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 // import Apllyjob from "../Schema/custumer.js/aplly.js";
 
 // import Postjob from "../Schema/postjob.js";
+import PostJob from "../Schema/employee.js";
 import jwt from 'jsonwebtoken';
 
 
@@ -53,9 +54,10 @@ class adminController {
   }
 
 
-  static getjobs = async (req, res) => {
+  static getjobsByStaffs = async (req, res) => {
 
-    const userLogin = await Postjob.find()
+   const {_id}  = req.user
+    const userLogin = await PostJob.find({jobPostedBy:_id})
     if (userLogin) {
 
       res.send(userLogin)
@@ -73,11 +75,11 @@ class adminController {
     try {
       const { email, password } = req.body
       console.log(req.body)
-      if (!eamil || !password) {
-        return res.status(400).json({ message: "pls filled data" })
+      if (!email || !password) {
+        return res.status(400).json({ message: "pls filled data",status:"failed" })
       }
 
-      const userLogin = await Registration.findOne({ eamil: email });
+      const userLogin = await Registration.findOne({ email: email });
       if (userLogin) {
 
         const isMatch = await bcrypt.compare(password, userLogin.password)
@@ -89,7 +91,7 @@ class adminController {
         //     expires:new Date(Date.now() + 2589000000),
         //    httpOnly:true});
 
-        !isMatch ? res.status(400).send({ "status":"failed", message: "number or password wrong" }) : res.send({ "status": "success", "message": "Login Success", "token": token })
+        !isMatch ? res.status(400).send({ status:"failed", message: "number or password wrong" }) : res.send({ status: "success", message: "Login Success", "token": token })
 
       }
       else { res.status(400).send({ message: "filled invalid data"  }) }
