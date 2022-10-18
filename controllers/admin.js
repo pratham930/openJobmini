@@ -28,7 +28,7 @@ class adminController {
         }
 
         if (userLogin.email == email) {
-          res.status(201).send({ message: " email register", status: "failed" })
+          res.status(201).send({ message: " email already register", status: "failed" })
         }
       }
       if (!userLogin) {
