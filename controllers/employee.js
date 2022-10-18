@@ -13,6 +13,22 @@ class employeeController {
 
 
 
+  static postjob = async (req, res) => {
+
+    try {
+      
+     
+        const register = new PostJob(re.body)
+        await register.save()
+        res.status(201).send({ message: "job posted succesfully", status: "success" })
+      
+    }
+    catch (error) {
+      console.log(error)
+      return res.status(422).json({ error: "not found data" })
+    }
+  }
+
   static register = async (req, res) => {
 
     try {

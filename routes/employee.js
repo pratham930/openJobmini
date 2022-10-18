@@ -13,6 +13,8 @@ const router = express.Router();
 
 router.post('/register', employeeController.register);
 router.post('/login', employeeController.login);
+router.post('/postjob', employeeController.postjob);
+
 
 //patch
 

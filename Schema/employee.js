@@ -14,21 +14,25 @@ const PostJobSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    sallery:{
+    minimum:{
         type: String,
         
     },
-    loaction:{
+    maximum:{
+        type: String,
+        
+    },
+    jobloaction:{
         type: String,
        
     },
     
-    HrNumber:{
+    hrnumber:{
         type: String,
        
     },
     
-    jobdetails:{
+    jobdescription:{
         type: String,
        
     },
